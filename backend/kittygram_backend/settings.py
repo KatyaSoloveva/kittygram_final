@@ -8,11 +8,11 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'xxx')
+SECRET_KEY = 'django-insecure-cg6*%6d51ef8f#4!r3*$vmxm4)abgjw8mo!4y-q*uq1!4$-89$'
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = ['158.160.83.89', '127.0.0.1', 'localhost', 'kittygrampro.zapto.org']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -60,8 +60,8 @@ WSGI_APPLICATION = 'kittygram_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3' if os.getenv('SQLITE') == 'True' else 'django.db.backends.postgresql',
-        'NAME': BASE_DIR / 'db.sqlite3' if os.getenv('SQLITE') == 'True' else  os.getenv('POSTGRES_DB', 'django'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'django'),
         'USER': os.getenv('POSTGRES_USER', 'django'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
         'HOST': os.getenv('DB_HOST', ''),
